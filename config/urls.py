@@ -39,6 +39,10 @@ if settings.DEBUG:
             kwargs={"exception": Exception("Page not Found")},
         ),
         path("500/", default_views.server_error),
+
+        path('dj-rest-auth/', include('dj_rest_auth.urls')),
+
+        path('dj-rest-auth/registration/', include('dj_rest_auth.registration.urls'))
     ]
     if "debug_toolbar" in settings.INSTALLED_APPS:
         import debug_toolbar
